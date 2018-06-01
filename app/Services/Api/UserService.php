@@ -9,6 +9,7 @@
 namespace App\Services\Api;
 
 use App\Model\User;
+use App\Libraries\YouZan\UseYouZan;
 
 class UserService
 {
@@ -18,6 +19,14 @@ class UserService
     {
         $result = [];
         $result['user_info'] = User::where('name','!=','')->limit(10)->get();
+        return $result;
+    }
+
+    public function youZanTest()
+    {
+        $result = [];
+        $youzan = new UseYouZan();
+        $result['youzan'] = $youzan->upload();
         return $result;
     }
 

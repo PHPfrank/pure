@@ -15,7 +15,7 @@ class UserController extends ApiController
 
     public function __construct()
     {
-        $this->user = new UserService();
+        $this->service = new UserService();
     }
 
 
@@ -40,7 +40,9 @@ class UserController extends ApiController
 
     public function test()
     {
-
+        $result = $this->service->youZanTest();
+        //数据返回
+        return $this->wantsJson($result);
     }
 
 
