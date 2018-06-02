@@ -39,7 +39,7 @@ class ApiMiddleware
         }
 
         //记录日志
-        $this->accessLog();
+        //$this->accessLog();
 
         return $next($request);
     }
