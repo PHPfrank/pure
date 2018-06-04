@@ -32,6 +32,6 @@ class RequestLogMiddleware
 //			"channel" => $request->header("Channel_name","")
 //		);
 //		$this->requestLog->writeLog($data);
-//		return $next($request);
+		return $next($request);
 	}
 }
