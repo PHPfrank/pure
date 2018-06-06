@@ -48,9 +48,32 @@ class UseYouZan
     }
 
 
-    public function upload()
+    public function ticket()
     {
-        dd($this->token);
+
+        $method = 'youzan.ump.promocode.add'; //要调用的api名称
+        $api_version = '3.0.0'; //要调用的api版本号
+
+        $my_params = [
+            'value' => '200',
+            'total' => '200',
+            'title' => '优惠码',
+            'start_at' => '2018-04-28 00:00:00',
+            'range_type' => 'ALL',
+            'quota' => '5',
+            'is_at_least' => '0',
+            'expire_notice' => '0',
+            'end_at' => '2018-04-30 00:00:00',
+            'code_type' => 'UNIQUE',
+            'at_least' => '0',
+        ];
+
+        $my_files = [
+        ];
+
+
+        $res = $this->client->post($method, $api_version, $my_params, $my_files);
+        return $res;
     }
 
 }

@@ -28,6 +28,11 @@ class ApiMiddleware
     {
         $this->request = $request;
 
+        /** 过滤前端option请求*/
+        if (Request::getMethod() == "OPTIONS") {
+            return response(['code' => 200, 'msg' => '成功','data'=>(object)[]]);
+        }
+
         /** 验证access_token */
         $token = Request::input('token') ?: Request::header('Token');
         if (!$token) {

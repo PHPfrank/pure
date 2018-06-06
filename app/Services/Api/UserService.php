@@ -26,7 +26,7 @@ class UserService
     {
         $result = [];
         $youzan = new UseYouZan();
-        $result['youzan'] = $youzan->upload();
+        $result['youzan'] = $youzan->ticket();
         return $result;
     }
 

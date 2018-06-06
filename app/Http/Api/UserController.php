@@ -9,6 +9,9 @@ namespace App\Http\Api;
 
 use App\Model\User;
 use App\Services\Api\UserService;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Queue;
+use App\Jobs\SendMsg;
 
 class UserController extends ApiController
 {
@@ -43,6 +46,13 @@ class UserController extends ApiController
         $result = $this->service->youZanTest();
         //数据返回
         return $this->wantsJson($result);
+    }
+
+    public function queue()
+    {
+        $email = "xxxxxx@qq.com";
+        $job = (new SendMsg($email))->delay(10);
+        dispatch($job);
     }
 
 

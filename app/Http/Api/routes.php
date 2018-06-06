@@ -15,6 +15,8 @@
 $app->group(['prefix' => '/app/v1'], function ($app) {
     //测试
     Route::any('/test',['uses' => 'UserController@test']);
+    //队列
+    Route::any('/queue',['uses' => 'UserController@queue']);
 });
 // 'middleware' => 'ApiAuth'需要登录后访问的
 $app->group(['prefix' => '/app/v1', 'middleware' => 'ApiAuth'], function ($app) {
