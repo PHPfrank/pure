@@ -6,3 +6,12 @@
 业务解耦分层：controller->service->(support)->model
 
 laravel扩展：
+
+1.支付系统：集合ping++支付，支付宝sdk，处理大部分pc及移动端支付问题
+
+2.移动互联网IM及推送系统：Jpush和网易云信sdk
+
+3.websocket：结合workerman实现长连接。丰富业务场景
+
+待完善
+
